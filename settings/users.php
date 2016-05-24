@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,18 +9,23 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<!--- time picker -->
-<link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+<script src="bootstrap.min.js"></script>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
 <style type="text/css">
-  
+/* modal login */
+.modal-header, h4, .close {
+    background-color: #5cb85c;
+    color:white !important;
+    text-align: center;
+    font-size: 30px;
+}
+.modal-footer {
+    background-color: #f9f9f9;
+}  
+/* SIDE NAV */
 .sidenav {
 height: 100%;
 width: 0;
@@ -64,20 +70,69 @@ padding-top: 60px;
 }
 </style>
 </head>
-<body>
+<body >
 <div id="main" class="container-fluid">
-  <?php
-  include '../sidenav.php';
-  ?>
-  <div class='w3-container top'>
-    <?php
-    include '../cekLogin.php';
-    include '../nav.php';
-    include '../login.php';
-    include'./ticketSupport.php';
-    ?>
-  </div>
-  
+	<?php
+	include '../sidenav.php';
+	?>
+	<div class='w3-container top'>
+		<?php
+		include '../nav.php';
+		?>
+	</div>
+	<?php
+		include '../login.php';
+		
+		?>
+	
+	<ul class="nav nav-tabs">
+	  <li role="presentation" class="active"><a href="#">Users</a></li>
+	  <li role="presentation"><a href="engid.php">PC Call</a></li>
+	  <li role="presentation"><a href="#">Messages</a></li>
+	</ul>
+	&nbsp;
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<td>No.</td>
+				<td>User</td>
+				<td>Full Name</td>
+				<td>PC ID</td>
+				<td>Last Login</td>
+			</tr>
+		</thead>
+		<tbody>
+		<?php
+		mysql_query("INSERT INTO engine_id (pc_id)    
+                     SELECT is_pc 
+                     FROM tuser WHERE is_pc is not null 
+                    ")
+		$no=1;
+		$quser=mysql_query("select * from tuser");
+		while ( $row = mysql_fetch_assoc($quser)) {
+			$is_login=$row['is_login'];
+		?>
+			<tr 
+				<?php
+					if($is_login==1):
+						echo"class='success'";
+					endif;
+				?>
+				>
+				<td><?php echo $no; ?></td>
+				<td><?php echo $row['emp_code']; ?></td>
+				<td><?php echo $row['full_name']; ?></td>
+				<td><?php echo $row['is_pc']; ?></td>
+				<td><?php echo $row['last_login']; ?></td>
+			</tr>
+		<?php	
+		$no++;
+		}
+		?>
+			
+		</tbody>
+	</table>
+    
 </div>
 <script>
 //==== jam
@@ -105,13 +160,6 @@ $(document).ready(function(){
     $("#myBtn").click(function(){
         $("#myModal").modal();
     });
-});
-
-
-//====  
-
-$(function () {
-    $('#datetimepicker1').datetimepicker();
 });
 
 </script>

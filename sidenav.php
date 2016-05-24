@@ -7,7 +7,7 @@
   <a href="/callCenter/record/">Data Record</a>		
   <a href="/callCenter/phoneBook">Phone Book</a>
   <a href="/callCenter/memberBook">Data Customer</a>
-  <a href="#">Setting</a>		
+  <a href="/callCenter/settings">Setting</a>		
   
   <a href="/callCenter/logout.php"><span class="glyphicon glyphicon-log-in"></span> Log Out</a>			
 </div>

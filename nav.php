@@ -22,8 +22,8 @@ onclick="openNav()"
     ></span></a>
     </div>
     <ul class="nav navbar-nav">
-      
-      <li><a href="../"><?php 
+      <li><a href="../" class="glyphicon glyphicon-dashboard" title="Dashboard"></a></li>
+      <li><a href="#" title="Menu"><?php 
       $lokasi=array("callCenter" => "CALL CENTER INFORMATION",
                     "input" => "INPUT TICKET SUPPORT",
                     "phoneBook" => "PHONE BOOK",
