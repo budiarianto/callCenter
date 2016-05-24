@@ -81,7 +81,7 @@ padding-top: 60px;
 		?>
 	</div>
 	<?php
-		include '../login.php';
+		include '../cekLogin.php';
 		
 		?>
 	
@@ -98,15 +98,13 @@ padding-top: 60px;
 				<td>User</td>
 				<td>Full Name</td>
 				<td>PC ID</td>
+				<td>Eng ID</td>
 				<td>Last Login</td>
 			</tr>
 		</thead>
 		<tbody>
 		<?php
-		mysql_query("INSERT INTO engine_id (pc_id)    
-                     SELECT is_pc 
-                     FROM tuser WHERE is_pc is not null 
-                    ")
+		
 		$no=1;
 		$quser=mysql_query("select * from tuser");
 		while ( $row = mysql_fetch_assoc($quser)) {
@@ -123,6 +121,7 @@ padding-top: 60px;
 				<td><?php echo $row['emp_code']; ?></td>
 				<td><?php echo $row['full_name']; ?></td>
 				<td><?php echo $row['is_pc']; ?></td>
+				<td><?php echo $row['eng_id']; ?></td>
 				<td><?php echo $row['last_login']; ?></td>
 			</tr>
 		<?php	

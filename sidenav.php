@@ -1,8 +1,9 @@
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <a href="#"><?php
+  	include'cekLogin.php';
   	session_start();
-  	echo $_SESSION['username'];?></a>
+  	echo $full_name;?></a>
   <a href="/callCenter/input">Input</a>
   <a href="/callCenter/record/">Data Record</a>		
   <a href="/callCenter/phoneBook">Phone Book</a>

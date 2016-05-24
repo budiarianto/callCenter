@@ -86,10 +86,7 @@ $sqlTicketSupport="INSERT INTO ticket_support(
 							'$penerima',
 							'$emp_code'
 							)";
-echo $sqlTicketSupport;
 
-mysql_query($sqlphone);
-mysql_query($sqlContactResult);
 $sql_TicketSupport=mysql_query($sqlTicketSupport);
 if($sql_TicketSupport):
 	header('Location: /callCenter/record');

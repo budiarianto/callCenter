@@ -82,8 +82,17 @@ padding-top: 60px;
 	</div>
 	<?php
 		include 'login.php';
-		
-		?>
+        include 'cekLogin.php';
+        if ($username==""):
+            echo"
+                <div class='alert alert-warning fade in'>
+                    <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                    <strong>Warning!</strong>   Please, login !
+                </div>
+        ";
+        endif;    
+	?>
+
 	<div id="txtHint"><img src="public/image/loading.gif"></div>
 
 </div>

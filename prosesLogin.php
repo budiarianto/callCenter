@@ -8,18 +8,24 @@ $jumlah = mysql_num_rows($cekuser);
 $hasil = mysql_fetch_array($cekuser);
 $userid=$hasil['user_id'];
 $nama_host = gethostbyaddr($_SERVER['REMOTE_ADDR']);
-echo $userid,$nama_host;
+$qeng_id=mysql_fetch_array(mysql_query("SELECT eng_id FROM engine_id where pc_id='$nama_host'"));
+$eng_id=$qeng_id['eng_id'];
+echo $userid,$nama_host,$eng_id;
 if ($jumlah==1):
-  
+mysql_query("UPDATE tuser SET
+                          is_login='0'
+                          WHERE
+                          is_pc='$nama_host'
+            ");  
 mysql_query("UPDATE tuser SET 
                           last_login=CURRENT_TIMESTAMP,
                           is_login='1',
-                          is_pc='$nama_host'
+                          is_pc='$nama_host',
+                          eng_id='$eng_id'
                         WHERE
                           user_id='$userid'
                         ");
 $_SESSION['username'] = $user_name;
-echo $nama_host;
 endif;
 
 header('Location: ../callCenter/');

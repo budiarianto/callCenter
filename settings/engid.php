@@ -78,22 +78,47 @@ padding-top: 60px;
 	<div class='w3-container top'>
 		<?php
 		include '../nav.php';
+        include '../cekLogin.php';
 		?>
 	</div>
-	<?php
-		include '../login.php';
-		mysql_query("INSERT INTO engine_id (pc_id)    
-                     SELECT is_pc 
-                     FROM tuser WHERE is_pc is not null 
-                    ");
-		?>
+	
 	
 	<ul class="nav nav-tabs">
 	  <li role="presentation"><a href="users.php">Users</a></li>
 	  <li role="presentation"  class="active"><a href="engid.php">PC Call</a></li>
 	  <li role="presentation"><a href="#">Messages</a></li>
 	</ul>
+    &nbsp;
+    <table class="table">
+        <thead>
+            <tr>
+                <td>No.</td>
+                <td>PC Id</td>
+                <td>Eng Id</td>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            mysql_query("INSERT INTO engine_id (pc_id)    
+                     SELECT is_pc 
+                     FROM tuser WHERE is_pc is not null 
+                    ");
+            $no=1;
+            $qendid=mysql_query("SELECT * from engine_id ORDER BY eng_id ASC ");
+            while($row=mysql_fetch_assoc($qendid)){
+            ?>
+            <tr>
+                <td><?php echo $no; ?></td>
+                <td><?php echo $row['pc_id']; ?></td>
+                <td><?php echo $row['eng_id']; ?></td>
+            </tr>
+            <?php
+                $no++;
+                }
+            ?>    
 
+        </tbody>
+    </table>
 
 </div>
 <script>

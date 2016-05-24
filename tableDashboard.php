@@ -18,9 +18,11 @@ th {text-align: left;}
 <body>
 <?php
 include 'koneksi.php';
+include 'update.php';
 ?>
     
 <?php
+
 $query=mysql_query("select 
                         *
                         from ticket_support

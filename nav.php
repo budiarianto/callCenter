@@ -8,18 +8,14 @@ include'cekLogin.php';
 
       <?php 
       
-      if(!isset($_SESSION['username'])) {
-      ?>
-id="myBtn"
-<?php 
-}
-else { $user_name = $_SESSION['username'];
-?>
-onclick="openNav()"
-<?php
- }
- ?>
-    ></span></a>
+        if($username==""):
+          echo"id='myBtn'";
+        else:
+          echo "onclick='openNav()'";
+        endif;
+
+       ?>
+                                          ></span></a>
     </div>
     <ul class="nav navbar-nav">
       <li><a href="../" class="glyphicon glyphicon-dashboard" title="Dashboard"></a></li>
