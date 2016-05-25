@@ -83,13 +83,12 @@ $sqlTicketSupport="INSERT INTO ticket_support(
 							'$perusahaan',
 							'$keperluan',	
 							'$status',
-							'$penerima',
+							(SELECT nama FROM speed_dial where spdial='$penerima'),
 							'$emp_code'
 							)";
-
+echo $sqlTicketSupport;
 $sql_TicketSupport=mysql_query($sqlTicketSupport);
 if($sql_TicketSupport):
 	header('Location: /callCenter/record');
 endif;	
-
 ?>

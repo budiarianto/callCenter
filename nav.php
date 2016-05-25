@@ -24,7 +24,8 @@ include'cekLogin.php';
                     "input" => "INPUT TICKET SUPPORT",
                     "phoneBook" => "PHONE BOOK",
                     "record" => "DATA RECORD",
-                    "memberBook" => "DATA MEMBER");
+                    "memberBook" => "DATA MEMBER",
+                    "settings"=>"SETTINGS");
       echo strtr(basename (dirname($_SERVER['PHP_SELF']),"/"),$lokasi);?></a></li>  
     </ul> 
     <ul class="nav navbar-nav navbar-right">

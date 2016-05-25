@@ -37,7 +37,7 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Keperluan :</label>
       <div class="col-sm-5">
-         <textarea type="text" Rows="5" class="form-control" id="keperluan" name="keperluan" placeholder="Keperluan ..." required="true"></textarea>
+         <input type="text" Rows="5" class="form-control" id="keperluan" name="keperluan" placeholder="Keperluan ..." required="true" />
       </div>
     </div>
     

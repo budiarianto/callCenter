@@ -12,6 +12,8 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
 <style type="text/css">
 
 
@@ -94,25 +96,25 @@ padding-top: 60px;
   <div class="form-group">
     <label class="control-label col-sm-2" for="member_name">Nama:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="member_name" name="member_name" value="<?php echo $row['member_name'];?>">
+      <input type="text" class="form-control" id="member_name" name="member_name" value="<?php echo $row['member_name'];?>" required="true">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="phone_number">Phone Number:</label>
     <div class="col-sm-8"> 
-      <input type="number" class="form-control" id="phone_number" name="phone_number" value="<?php echo $row['phone_number'];?>">
+      <input type="number" class="form-control" id="phone_number" name="phone_number" value="<?php echo $row['phone_number'];?>" required="true">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="address">Alamat:</label>
     <div class="col-sm-8">
-      <textarea class="form-control" rows="5" id="address" name="address" ><?php echo $row['address'];?></textarea>
+      <textarea class="form-control" rows="5" id="address" name="address" required="true"><?php echo $row['address'];?></textarea>
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="email">Email:</label>
     <div class="col-sm-8">
-      <input type="email" class="form-control" id="email" name="email" value="<?php echo $row['email'];?>" >
+      <input type="email" class="form-control" id="email" name="email" value="<?php echo $row['email'];?>"  required="true">
     </div>
   </div>
   <div class="form-group">

@@ -1,3 +1,15 @@
+<div class="page-header">
+        <form class="form-inline">
+            <div class="form-group">
+                <a href="/callCenter/phoneBook/add.php" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Tambah</a>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName2">Search</label>
+                <input type="text" class="form-control" id="exampleInputName2" placeholder="">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
 <?php
 include '../koneksi.php';
 ?>

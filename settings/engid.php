@@ -6,7 +6,7 @@
 <meta http-equiv="refresh" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="/callCenter/bootstrap/css/bootstrap.min.css">
 
 <!-- jQuery library -->
 <script src="jquery.min.js"></script>
@@ -99,9 +99,12 @@ padding-top: 60px;
         </thead>
         <tbody>
             <?php
-            mysql_query("INSERT INTO engine_id (pc_id)    
-                     SELECT is_pc 
-                     FROM tuser WHERE is_pc is not null 
+            mysql_query("INSERT INTO engine_id (pc_id)      
+                            SELECT is_pc
+                            FROM tuser tu
+                            LEFT JOIN engine_id ei on tu.is_pc=ei.pc_id
+                            where is_pc is not null and pc_id is null
+                            group by is_pc 
                     ");
             $no=1;
             $qendid=mysql_query("SELECT * from engine_id ORDER BY eng_id ASC ");
