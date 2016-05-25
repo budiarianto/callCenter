@@ -6,7 +6,7 @@
 <meta http-equiv="refresh" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="/callCenter/bootstrap/css/bootstrap.min.css">
 
 <!-- jQuery library -->
 <script src="jquery.min.js"></script>
@@ -14,7 +14,13 @@
 <!-- Latest compiled JavaScript -->
 <script src="bootstrap.min.js"></script>
 
+<!--- time picker -->
+<link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+<style type="text/css">
 
 <style type="text/css">
 /* modal login */
@@ -93,13 +99,24 @@ padding-top: 60px;
             </div>
             <div class="form-group">
                 <label for="exampleInputName2">From</label>
-                <input type="text" class="form-control" id="exampleInputName2" placeholder="">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type="text" class="form-control" name="datetimepicker1" placeholder="" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail2">To</label>
-                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="">
+                <label for="exampleInputName2">To</label>
+                <div class='input-group date' id='datetimepicker2'>
+                    <input type="text" class="form-control" name="datetimepicker2" placeholder="" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
+            <a href="/callCenter/record/" class="btn btn-default"><span class="glyphicon glyphicon-repeat"></span> RESET</a>
         </form>
     </div>
     <div id="txtHint"><img src="../public/image/loading.gif"></div>
@@ -142,6 +159,11 @@ $(document).ready(function(){
     $("#myBtn").click(function(){
         $("#myModal").modal();
     });
+});
+
+$(function () {
+    $('#datetimepicker1').datetimepicker({format : 'DD/MM/YYYY'});
+    $('#datetimepicker2').datetimepicker({format : 'DD/MM/YYYY'});
 });
 
 </script>

@@ -121,6 +121,7 @@ padding-top: 60px;
     <label class="control-label col-sm-2" for="email">Group:</label>
     <div class="col-sm-4">
       <select class="form-control" name="pb_group_id">
+        
         <?php
         $qgroup=mysql_query("select * from phone_book_group where is_active=1");
         while ($rowgroup = mysql_fetch_assoc($qgroup)) {

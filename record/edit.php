@@ -6,13 +6,13 @@
 <meta http-equiv="refresh" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="/callCenter/bootstrap/css/bootstrap.min.css">
 
 <!-- jQuery library -->
-<script src="jquery.min.js"></script>
+<script src="/callCenter/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
-<script src="bootstrap.min.js"></script>
+<script src="/callCenter/bootstrap.min.js"></script>
 
 <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
 
@@ -110,7 +110,9 @@ padding-top: 60px;
             </div>
           </div>
         </div>
-
+        <?php
+        if($row['penelepon']!=""):
+        ?>
         <div class="form-group">
           <label class="control-label col-sm-2" for="email">Penelepon :</label>
           <div class="col-sm-5">
@@ -124,7 +126,53 @@ padding-top: 60px;
              <input type="number" class="form-control" id="notlp" name="notlp" placeholder="No Telpon / HP ..." required="true"  value="<?php echo $row['notlp']; ?>" >
           </div>
         </div>
-
+        <?php
+          else:
+        ?>
+        <!--   tambhan -->
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="member_name">Nama:</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="member_name" name="member_name" value="" required="true" placeholder="Nama Lengkap">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="phone_number">Phone Number:</label>
+            <div class="col-sm-5"> 
+              <input type="number" class="form-control" id="phone_number" name="phone_number" placeholder="No Telpon / HP ..." required="true"  value="<?php echo $row['notlp']; ?>" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="address">Alamat:</label>
+            <div class="col-sm-5">
+              <textarea class="form-control" rows="5" id="address" name="address"  required="true" placeholder="Alamat"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Email:</label>
+            <div class="col-sm-5">
+              <input type="email" class="form-control" id="email" name="email" value=""  required="true" placeholder="Email@email.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Group:</label>
+            <div class="col-sm-4">
+              <select class="form-control" name="pb_group_id">
+                <?php
+                $qgroup=mysql_query("select * from phone_book_group where is_active=1");
+                while ($rowgroup = mysql_fetch_assoc($qgroup)) {
+                ?>
+                <option value="<?php echo $rowgroup['pb_group_id']; ?>"><?php echo $rowgroup['pb_group_title']; ?></option>
+                <?php 
+                  }
+                ?>  
+              </select>
+            </div>
+          </div>
+        <?php
+          endif;
+        ?>
+        <!-- end tambahan-->
         <div class="form-group">
           <label class="control-label col-sm-2" for="email">Perusahaan :</label>
           <div class="col-sm-5">
@@ -143,6 +191,7 @@ padding-top: 60px;
           <label class="control-label col-sm-2" for="email">Status :</label>
           <div class="col-sm-3">
             <select class="form-control" id="status" name="status">
+                <option value="<?php echo $row['status'];?>"><?php echo $row['status'];?></option>
                 <option value="Open">Open</option>
                 <option value="Closed">Closed</option>
             </select>

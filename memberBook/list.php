@@ -20,7 +20,7 @@ $no=1;
                 <th>PHONE NUMBER</th>
                 <th>ALAMAT / PERUSAHAAN</th>
                 <th>EMAIL</th>
-                <th>GROUP</th>
+                <th>STATUS</th>
                 <th>ACTION</th>
             </tr>
         </thead>
@@ -35,7 +35,7 @@ $no=1;
             <td><?php echo $row['phone_number']; ?></td>
             <td><?php echo $row['address']; ?></td>
             <td><?php echo $row['email']; ?></td>
-            <td><?php echo $row['pb_group_id']; ?></td>
+            <td>PROGRESS</td>
             <td><a id="myBtnPhone" href="../phoneBook/edit.php?id=<?php echo $row['phonebook_id']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
             </tr>   
         <?php
