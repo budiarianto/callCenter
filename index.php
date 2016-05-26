@@ -75,11 +75,11 @@ padding-top: 60px;
 	<?php
 	include 'sidenav.php';
 	?>
-	<div class='w3-container top'>
+	
 		<?php
 		include 'nav.php';
 		?>
-	</div>
+	
 	<?php
 		include 'login.php';
         include 'cekLogin.php';
